@@ -60,15 +60,12 @@ namespace ChatForms
 
             try
             {
-
                 NetworkStream n = client.GetStream();
                 //message.UserMessage = Console.ReadLine();
                 BinaryWriter w = new BinaryWriter(n);
                 string output = JsonConvert.SerializeObject(message);
                 w.Write(output);
                 w.Flush();
-
-
             }
             catch (Exception)
             {
