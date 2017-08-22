@@ -42,7 +42,6 @@
             // inputBox
             // 
             this.inputBox.Location = new System.Drawing.Point(119, 556);
-            this.inputBox.Multiline = true;
             this.inputBox.Name = "inputBox";
             this.inputBox.Size = new System.Drawing.Size(537, 22);
             this.inputBox.TabIndex = 0;
@@ -112,6 +111,7 @@
             // 
             // ChatForms
             // 
+            this.AcceptButton = this.sendBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 590);

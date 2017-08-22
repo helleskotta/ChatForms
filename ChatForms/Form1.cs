@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,14 +21,18 @@ namespace ChatForms
             client.Start();
         }
 
+        // Skicka-knapp
         private void sendBtn_Click(object sender, EventArgs e)
         {
             client.Send(textBox1.Text , inputBox.Text);
+            inputBox.Clear();
         }
 
+        // Chattruta
         public void WriteToChatBox(string name, string message)
         {
             chatBox.Items.Add($"{name}: {message}");
         }
+
     }
 }
