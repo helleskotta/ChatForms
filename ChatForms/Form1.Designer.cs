@@ -34,13 +34,17 @@
             this.sendBtn = new System.Windows.Forms.Button();
             this.contactsBox = new System.Windows.Forms.ListBox();
             this.contactLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // inputBox
             // 
-            this.inputBox.Location = new System.Drawing.Point(12, 556);
+            this.inputBox.Location = new System.Drawing.Point(119, 535);
+            this.inputBox.Multiline = true;
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(644, 22);
+            this.inputBox.Size = new System.Drawing.Size(537, 43);
             this.inputBox.TabIndex = 0;
             // 
             // chatBox
@@ -49,7 +53,7 @@
             this.chatBox.ItemHeight = 16;
             this.chatBox.Location = new System.Drawing.Point(12, 12);
             this.chatBox.Name = "chatBox";
-            this.chatBox.Size = new System.Drawing.Size(644, 532);
+            this.chatBox.Size = new System.Drawing.Size(644, 500);
             this.chatBox.TabIndex = 1;
             // 
             // sendBtn
@@ -60,6 +64,7 @@
             this.sendBtn.TabIndex = 2;
             this.sendBtn.Text = "Send";
             this.sendBtn.UseVisualStyleBackColor = true;
+            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
             // contactsBox
             // 
@@ -79,18 +84,47 @@
             this.contactLabel.TabIndex = 4;
             this.contactLabel.Text = "Contacts";
             // 
-            // appNameLabel
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(13, 556);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 5;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(13, 533);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(45, 17);
+            this.nameLabel.TabIndex = 6;
+            this.nameLabel.Text = "Name";
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Location = new System.Drawing.Point(116, 515);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(114, 17);
+            this.messageLabel.TabIndex = 7;
+            this.messageLabel.Text = "Write a message";
+            // 
+            // ChatForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 590);
+            this.Controls.Add(this.messageLabel);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.contactLabel);
             this.Controls.Add(this.contactsBox);
             this.Controls.Add(this.sendBtn);
             this.Controls.Add(this.chatBox);
             this.Controls.Add(this.inputBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "appNameLabel";
+            this.Name = "ChatForms";
             this.Text = "ChatForms";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -104,6 +138,9 @@
         private System.Windows.Forms.Button sendBtn;
         private System.Windows.Forms.ListBox contactsBox;
         private System.Windows.Forms.Label contactLabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label messageLabel;
     }
 }
 

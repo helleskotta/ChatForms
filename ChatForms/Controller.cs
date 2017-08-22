@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace ChatForms
 {
+    // Metoder för kommunikation mellan klient och server
+
     class Controller
     {
-        // Metoder för kommunikation mellan klient och server
-
-        // Send messages
+        public void SendMessage(string input)
+        {
+            
+        }
 
         // Recieve messages
+
+
+        // Login
+
     }
 }
