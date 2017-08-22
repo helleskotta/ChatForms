@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ChatForms
 {
-    public partial class Form1 : Form
+    public partial class appNameLabel : Form
     {
-        public Form1()
+        public appNameLabel()
         {
             InitializeComponent();
         }
