@@ -41,19 +41,19 @@
             // 
             // inputBox
             // 
-            this.inputBox.Location = new System.Drawing.Point(119, 535);
+            this.inputBox.Location = new System.Drawing.Point(119, 556);
             this.inputBox.Multiline = true;
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(537, 43);
+            this.inputBox.Size = new System.Drawing.Size(537, 22);
             this.inputBox.TabIndex = 0;
             // 
             // chatBox
             // 
             this.chatBox.FormattingEnabled = true;
             this.chatBox.ItemHeight = 16;
-            this.chatBox.Location = new System.Drawing.Point(12, 12);
+            this.chatBox.Location = new System.Drawing.Point(12, 30);
             this.chatBox.Name = "chatBox";
-            this.chatBox.Size = new System.Drawing.Size(644, 500);
+            this.chatBox.Size = new System.Drawing.Size(644, 484);
             this.chatBox.TabIndex = 1;
             // 
             // sendBtn
@@ -70,15 +70,15 @@
             // 
             this.contactsBox.FormattingEnabled = true;
             this.contactsBox.ItemHeight = 16;
-            this.contactsBox.Location = new System.Drawing.Point(740, 44);
+            this.contactsBox.Location = new System.Drawing.Point(663, 30);
             this.contactsBox.Name = "contactsBox";
-            this.contactsBox.Size = new System.Drawing.Size(210, 500);
+            this.contactsBox.Size = new System.Drawing.Size(210, 484);
             this.contactsBox.TabIndex = 3;
             // 
             // contactLabel
             // 
             this.contactLabel.AutoSize = true;
-            this.contactLabel.Location = new System.Drawing.Point(737, 12);
+            this.contactLabel.Location = new System.Drawing.Point(662, 10);
             this.contactLabel.Name = "contactLabel";
             this.contactLabel.Size = new System.Drawing.Size(63, 17);
             this.contactLabel.TabIndex = 4;
@@ -104,7 +104,7 @@
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
-            this.messageLabel.Location = new System.Drawing.Point(116, 515);
+            this.messageLabel.Location = new System.Drawing.Point(116, 533);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(114, 17);
             this.messageLabel.TabIndex = 7;
@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 590);
+            this.ClientSize = new System.Drawing.Size(897, 590);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.textBox1);
