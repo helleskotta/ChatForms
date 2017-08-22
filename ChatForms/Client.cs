@@ -12,10 +12,12 @@ using WebLibrary;
 
 namespace ChatForms
 {
+
     public class Client
     {
         private TcpClient client;
         private ChatForms chatForms;
+        public string name;
 
         public Client(ChatForms chatForms)
         {
@@ -41,6 +43,12 @@ namespace ChatForms
                 {
                     NetworkStream n = client.GetStream();
                     message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
+
+                    if (message.UserName == name)
+                    {
+                        message.UserName = "Me";
+                    }
+
                     chatForms.WriteToChatBox(message.UserName, message.UserMessage);
                     //Console.WriteLine($"{message.UserName}: {message.UserMessage}");
                 }
@@ -57,6 +65,7 @@ namespace ChatForms
             message.UserName = inputUserName;
             message.Version = "1.0";
             message.UserMessage = inputUserMessage;
+            name = inputUserName;
 
             try
             {
