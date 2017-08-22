@@ -23,7 +23,7 @@ namespace ChatForms
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new appNameLabel());
+            Application.Run(new ChatForms());
         }
     }
 }

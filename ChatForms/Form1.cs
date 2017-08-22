@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ChatForms
 {
-    public partial class appNameLabel : Form
+    public partial class ChatForms : Form
     {
-        public appNameLabel()
+        public ChatForms()
         {
             InitializeComponent();
-        }
-
-        private void inputBox_TextChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

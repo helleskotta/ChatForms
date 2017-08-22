@@ -1,6 +1,6 @@
 ﻿namespace ChatForms
 {
-    partial class appNameLabel
+    partial class ChatForms
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(appNameLabel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatForms));
             this.inputBox = new System.Windows.Forms.TextBox();
             this.chatBox = new System.Windows.Forms.ListBox();
             this.sendBtn = new System.Windows.Forms.Button();
@@ -42,7 +42,6 @@
             this.inputBox.Name = "inputBox";
             this.inputBox.Size = new System.Drawing.Size(644, 22);
             this.inputBox.TabIndex = 0;
-            this.inputBox.TextChanged += new System.EventHandler(this.inputBox_TextChanged);
             // 
             // chatBox
             // 
