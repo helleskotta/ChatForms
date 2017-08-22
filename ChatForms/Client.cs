@@ -45,7 +45,7 @@ namespace ChatForms
                     //Console.WriteLine($"{message.UserName}: {message.UserMessage}");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //Console.WriteLine(ex.Message);
             }
