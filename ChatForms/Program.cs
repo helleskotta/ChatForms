@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,6 +15,12 @@ namespace ChatForms
         [STAThread]
         static void Main()
         {
+            Client myClient = new Client();
+
+            Thread clientThread = new Thread(myClient.Start);
+            clientThread.Start();
+            clientThread.Join();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new appNameLabel());

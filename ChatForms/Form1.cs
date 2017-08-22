@@ -16,5 +16,10 @@ namespace ChatForms
         {
             InitializeComponent();
         }
+
+        private void inputBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

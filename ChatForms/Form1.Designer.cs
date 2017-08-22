@@ -42,6 +42,7 @@
             this.inputBox.Name = "inputBox";
             this.inputBox.Size = new System.Drawing.Size(644, 22);
             this.inputBox.TabIndex = 0;
+            this.inputBox.TextChanged += new System.EventHandler(this.inputBox_TextChanged);
             // 
             // chatBox
             // 
