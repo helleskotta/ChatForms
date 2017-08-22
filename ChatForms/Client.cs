@@ -15,20 +15,20 @@ namespace ChatForms
     public class Client
     {
         private TcpClient client;
+        private ChatForms chatForms;
+
+        public Client(ChatForms chatForms)
+        {
+            this.chatForms = chatForms;
+        }
 
         public void Start()
         {
 
             client = new TcpClient("192.168.25.76", 5000);
 
-            Thread listenerThread = new Thread(Send);
-            listenerThread.Start();
-
             Thread senderThread = new Thread(Listen);
             senderThread.Start();
-
-            senderThread.Join();
-            listenerThread.Join();
         }
 
         public void Listen()
@@ -41,40 +41,38 @@ namespace ChatForms
                 {
                     NetworkStream n = client.GetStream();
                     message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
-                    Console.WriteLine($"{message.UserName}: {message.UserMessage}");
+                    chatForms.WriteToChatBox(message.UserName, message.UserMessage);
+                    //Console.WriteLine($"{message.UserName}: {message.UserMessage}");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                //Console.WriteLine(ex.Message);
             }
         }
 
-        public void Send()
+        public void Send(string inputUserName, string inputUserMessage)
         {
             Message message = new Message();
-            Console.Write("Namn: ");
-            message.UserName = Console.ReadLine();
+            message.UserName = inputUserName;
             message.Version = "1.0";
-            message.UserMessage = $"{message.UserName} joined the chat";
+            message.UserMessage = inputUserMessage;
 
             try
             {
-                while (!message.UserMessage.Equals("quit"))
-                {
-                    NetworkStream n = client.GetStream();
-                    message.UserMessage = Console.ReadLine();
-                    BinaryWriter w = new BinaryWriter(n);
-                    string output = JsonConvert.SerializeObject(message);
-                    w.Write(output);
-                    w.Flush();
-                }
 
-                client.Close();
+                NetworkStream n = client.GetStream();
+                //message.UserMessage = Console.ReadLine();
+                BinaryWriter w = new BinaryWriter(n);
+                string output = JsonConvert.SerializeObject(message);
+                w.Write(output);
+                w.Flush();
+
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                //Console.WriteLine(ex.Message);
             }
         }
     }
