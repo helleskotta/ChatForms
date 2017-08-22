@@ -1,21 +1,25 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using WebLibrary;
 
 namespace ChatForms
 {
-    class Client
+    public class Client
     {
         private TcpClient client;
 
         public void Start()
         {
-            client = new TcpClient("192.168.25.115", 5000);
+
+            client = new TcpClient("192.168.25.76", 5000);
 
             Thread listenerThread = new Thread(Send);
             listenerThread.Start();
@@ -29,36 +33,40 @@ namespace ChatForms
 
         public void Listen()
         {
-            string message = "";
+            Message message = new Message();
 
             try
             {
                 while (true)
                 {
                     NetworkStream n = client.GetStream();
-                    message = new BinaryReader(n).ReadString();
-                    Console.WriteLine("Other: " + message);
+                    message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
+                    Console.WriteLine($"{message.UserName}: {message.UserMessage}");
                 }
             }
-            catch(Exception)
+            catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
         }
 
         public void Send()
         {
-            string message = "";
+            Message message = new Message();
+            Console.Write("Namn: ");
+            message.UserName = Console.ReadLine();
+            message.Version = "1.0";
+            message.UserMessage = $"{message.UserName} joined the chat";
 
             try
             {
-                while (!message.Equals("quit"))
+                while (!message.UserMessage.Equals("quit"))
                 {
                     NetworkStream n = client.GetStream();
-
-                    message = Console.ReadLine();
+                    message.UserMessage = Console.ReadLine();
                     BinaryWriter w = new BinaryWriter(n);
-                    w.Write("Spöke: " + message);
+                    string output = JsonConvert.SerializeObject(message);
+                    w.Write(output);
                     w.Flush();
                 }
 
@@ -71,3 +79,4 @@ namespace ChatForms
         }
     }
 }
+
