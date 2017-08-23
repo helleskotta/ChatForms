@@ -12,7 +12,6 @@ using WebLibrary;
 
 namespace ChatForms
 {
-
     public class Client
     {
         private TcpClient client;
@@ -26,9 +25,7 @@ namespace ChatForms
 
         public void Start()
         {
-
             client = new TcpClient("192.168.25.76", 5000);
-
             Thread senderThread = new Thread(Listen);
             senderThread.Start();
         }
@@ -50,12 +47,11 @@ namespace ChatForms
                     }
 
                     chatForms.WriteToChatBox(message.UserName, message.UserMessage);
-                    //Console.WriteLine($"{message.UserName}: {message.UserMessage}");
                 }
             }
             catch (Exception)
             {
-                //Console.WriteLine(ex.Message);
+
             }
         }
 
@@ -70,7 +66,6 @@ namespace ChatForms
             try
             {
                 NetworkStream n = client.GetStream();
-                //message.UserMessage = Console.ReadLine();
                 BinaryWriter w = new BinaryWriter(n);
                 string output = JsonConvert.SerializeObject(message);
                 w.Write(output);
