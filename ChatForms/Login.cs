@@ -13,14 +13,16 @@ namespace ChatForms
     public partial class LoginBox : Form
     {
         User user;
+        ChatForms chatform;
 
         public LoginBox()
         {
             InitializeComponent();
         }
 
-        public DialogResult ShowLoginForm(User user)
+        public DialogResult ShowLoginForm(User user, ChatForms chatform)
         {
+            this.chatform = chatform;
             this.user = user;
             return ShowDialog();
         }
@@ -36,6 +38,11 @@ namespace ChatForms
             {
                 MessageBox.Show("Felaktigt användarnamn och/eller lösenord. Försök igen.!");
             }
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            chatform.Close();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace ChatForms
         private TcpClient client;
         private ChatForms chatForms;
         public string name;
+        Thread listenThread;
 
         public Client(ChatForms chatForms)
         {
@@ -27,8 +28,8 @@ namespace ChatForms
         {
 
             client = new TcpClient("192.168.25.76", 5000);
-            Thread senderThread = new Thread(Listen);
-            senderThread.Start();
+            listenThread = new Thread(Listen);
+            listenThread.Start();
         }
 
         public void Listen()
@@ -38,7 +39,7 @@ namespace ChatForms
                 try
                 {
                     NetworkStream n = client.GetStream();
-                    Message message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
+                    Message message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString()); // BLOCKERANDE!!1
 
                     if (message.UserName == name)
                     {
@@ -76,6 +77,12 @@ namespace ChatForms
             {
                 throw;
             }
+        }
+
+        public void Close()
+        {
+            listenThread.Suspend();
+            client.Close();
         }
     }
 }

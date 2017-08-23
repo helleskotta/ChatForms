@@ -35,6 +35,7 @@
             this.LoginButton = new System.Windows.Forms.Button();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.CreateUserButton = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usernameBox
@@ -112,6 +113,19 @@
             this.CreateUserButton.Text = "Create new user";
             this.CreateUserButton.UseVisualStyleBackColor = false;
             // 
+            // CloseButton
+            // 
+            this.CloseButton.BackColor = System.Drawing.Color.Black;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CloseButton.ForeColor = System.Drawing.Color.White;
+            this.CloseButton.Location = new System.Drawing.Point(585, 1);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(28, 28);
+            this.CloseButton.TabIndex = 7;
+            this.CloseButton.Text = "X";
+            this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
             // LoginBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -119,6 +133,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(614, 353);
+            this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.CreateUserButton);
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.LoginButton);
@@ -144,5 +159,6 @@
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Button CreateUserButton;
+        private System.Windows.Forms.Button CloseButton;
     }
 }

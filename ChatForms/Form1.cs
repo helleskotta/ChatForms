@@ -20,12 +20,13 @@ namespace ChatForms
         {
             InitializeComponent();
             client = new Client(this);
+            this.Tag = "YYY";
             client.Start();
         }
         private void ChatForms_Load(object sender, EventArgs e)
         {
             LoginBox lb = new LoginBox();
-            lb.ShowLoginForm(user);
+            lb.ShowLoginForm(user, this);
         }
         // Skicka-knapp
         private void sendBtn_Click(object sender, EventArgs e)
@@ -40,5 +41,9 @@ namespace ChatForms
             chatBox.Items.Add($"{name}: {message}");
         }
 
+        private void ChatForms_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            client.Close();
+        }
     }
 }

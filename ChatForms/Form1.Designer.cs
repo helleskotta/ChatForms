@@ -105,6 +105,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChatForms";
             this.Text = "ChatForms";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChatForms_FormClosing);
             this.Load += new System.EventHandler(this.ChatForms_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
