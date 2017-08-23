@@ -24,17 +24,12 @@ namespace ChatForms
         }
         private void ChatForms_Load(object sender, EventArgs e)
         {
-            while (client.loginSucceeded == false)
+            do
             {
                 LoginBox lb = new LoginBox();
                 lb.ShowLoginForm(user, client);
-
-                if (true)
-                {
-                    client.loginSucceeded = true;
-                }
-
-            }
+                Thread.Sleep(200);
+            } while (client.loginSucceeded == false);
         }
 
         // Skicka-knapp
