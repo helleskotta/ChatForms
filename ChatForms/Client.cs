@@ -16,6 +16,7 @@ namespace ChatForms
     {
         private TcpClient client;
         private ChatForms chatForms;
+        public string name;
 
         public Client(ChatForms chatForms)
         {
@@ -38,7 +39,14 @@ namespace ChatForms
                 {
                     NetworkStream n = client.GetStream();
                     Message message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
+
+                    if (message.UserName == name)
+                    {
+                        message.UserName = "Me";
+                    }
+
                     chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
+
                 }
                 catch (Exception)
                 {
@@ -53,6 +61,7 @@ namespace ChatForms
             message.UserName = inputUserName;
             message.Version = "1.0";
             message.UserMessage = inputUserMessage;
+            name = inputUserName;
 
             try
             {
