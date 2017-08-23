@@ -124,7 +124,6 @@
             this.CloseButton.TabIndex = 7;
             this.CloseButton.Text = "X";
             this.CloseButton.UseVisualStyleBackColor = false;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // LoginBox
             // 
