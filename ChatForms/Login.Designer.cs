@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginBox));
-            this.userNameBox = new System.Windows.Forms.TextBox();
+            this.usernameBox = new System.Windows.Forms.TextBox();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
@@ -37,22 +37,22 @@
             this.CreateUserButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // userNameBox
+            // usernameBox
             // 
-            this.userNameBox.BackColor = System.Drawing.Color.White;
-            this.userNameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.userNameBox.ForeColor = System.Drawing.Color.White;
-            this.userNameBox.Location = new System.Drawing.Point(73, 67);
-            this.userNameBox.Multiline = true;
-            this.userNameBox.Name = "userNameBox";
-            this.userNameBox.Size = new System.Drawing.Size(197, 28);
-            this.userNameBox.TabIndex = 0;
+            this.usernameBox.BackColor = System.Drawing.Color.White;
+            this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.usernameBox.ForeColor = System.Drawing.Color.Black;
+            this.usernameBox.Location = new System.Drawing.Point(73, 67);
+            this.usernameBox.Multiline = true;
+            this.usernameBox.Name = "usernameBox";
+            this.usernameBox.Size = new System.Drawing.Size(197, 28);
+            this.usernameBox.TabIndex = 0;
             // 
             // passwordBox
             // 
             this.passwordBox.BackColor = System.Drawing.Color.White;
             this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordBox.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.passwordBox.ForeColor = System.Drawing.Color.Black;
             this.passwordBox.Location = new System.Drawing.Point(73, 162);
             this.passwordBox.Multiline = true;
             this.passwordBox.Name = "passwordBox";
@@ -75,6 +75,7 @@
             // 
             this.LoginButton.BackColor = System.Drawing.Color.Black;
             this.LoginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.LoginButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LoginButton.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginButton.ForeColor = System.Drawing.Color.White;
@@ -85,6 +86,7 @@
             this.LoginButton.Text = "LOGIN";
             this.LoginButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // UsernameLabel
             // 
@@ -122,7 +124,7 @@
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.passwordBox);
-            this.Controls.Add(this.userNameBox);
+            this.Controls.Add(this.usernameBox);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -136,7 +138,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox userNameBox;
+        private System.Windows.Forms.TextBox usernameBox;
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Button LoginButton;

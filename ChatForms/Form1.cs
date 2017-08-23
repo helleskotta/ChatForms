@@ -12,7 +12,10 @@ namespace ChatForms
 {
     public partial class ChatForms : Form
     {
+        User user = new User();
+
         Client client;
+
         public ChatForms()
         {
             InitializeComponent();
@@ -22,12 +25,18 @@ namespace ChatForms
 
         private void sendBtn_Click(object sender, EventArgs e)
         {
-            client.Send(textBox1.Text , inputBox.Text);
+            client.Send(user.Username, inputBox.Text);
         }
 
         public void WriteToChatBox(string name, string message)
         {
             chatBox.Items.Add($"{name}: {message}");
+        }
+
+        private void ChatForms_Load(object sender, EventArgs e)
+        {
+            LoginBox lb = new LoginBox();
+            lb.ShowLoginForm(user);
         }
     }
 }

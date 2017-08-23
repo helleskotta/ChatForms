@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChatForms
 {
-    class Inloggning
+    public class User
     {
-        //Hämta och lagra samt validera användarnamn
-
-        //Hämta och lagra  samt validera lösenord
-
-        //
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
