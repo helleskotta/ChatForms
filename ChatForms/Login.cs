@@ -13,15 +13,17 @@ namespace ChatForms
     public partial class LoginBox : Form
     {
         User user;
+        Client client;
 
         public LoginBox()
         {
             InitializeComponent();
         }
 
-        public DialogResult ShowLoginForm(User user)
+        public DialogResult ShowLoginForm(User user, Client client)
         {
             this.user = user;
+            this.client = client;
             return ShowDialog();
         }
 
@@ -31,6 +33,7 @@ namespace ChatForms
             {
                 user.Username = usernameBox.Text;
                 user.Password = passwordBox.Text;
+                client.Login(user.Username, user.Password);
             }
             else
             {

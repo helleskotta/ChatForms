@@ -14,8 +14,8 @@ namespace ChatForms
     public partial class ChatForms : Form
     {
         User user = new User();
-
         Client client;
+
         public ChatForms()
         {
             InitializeComponent();
@@ -25,8 +25,9 @@ namespace ChatForms
         private void ChatForms_Load(object sender, EventArgs e)
         {
             LoginBox lb = new LoginBox();
-            lb.ShowLoginForm(user);
+            lb.ShowLoginForm(user, client);
         }
+
         // Skicka-knapp
         private void sendBtn_Click(object sender, EventArgs e)
         {

@@ -16,7 +16,8 @@ namespace ChatForms
     {
         private TcpClient client;
         private ChatForms chatForms;
-        public string name;
+        private string name;
+        private string currentVersion = "1.1";
 
         public Client(ChatForms chatForms)
         {
@@ -25,7 +26,6 @@ namespace ChatForms
 
         public void Start()
         {
-
             client = new TcpClient("192.168.25.76", 5000);
             Thread senderThread = new Thread(Listen);
             senderThread.Start();
@@ -41,11 +41,22 @@ namespace ChatForms
                     Message message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
 
                     if (message.UserName == name)
-                    {
                         message.UserName = "Me";
+
+                    switch (message.Action)
+                    {
+                        case "sendMessage":
+                            chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
+                            break;
+
+                        case "login":
+                            
+                            break;
+
+                        default:
+                            break;
                     }
 
-                    chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
 
                 }
                 catch (Exception)
@@ -59,14 +70,14 @@ namespace ChatForms
         {
             Message message = new Message();
             message.UserName = inputUserName;
-            message.Version = "1.0";
+            message.Version = currentVersion;
             message.UserMessage = inputUserMessage;
             name = inputUserName;
+            message.Action = "sendMessage";
 
             try
             {
                 NetworkStream n = client.GetStream();
-                //message.UserMessage = Console.ReadLine();
                 BinaryWriter w = new BinaryWriter(n);
                 string output = JsonConvert.SerializeObject(message);
                 w.Write(output);
@@ -75,6 +86,28 @@ namespace ChatForms
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        public void Login(string inputUserName, string inputUserPassword)
+        {
+            Message message = new Message();
+            message.UserName = inputUserName;
+            message.Version = currentVersion;
+            message.UserMessage = inputUserPassword;
+            name = inputUserName;
+            message.Action = "login";
+
+            try
+            {
+                NetworkStream n = client.GetStream();
+                BinaryWriter w = new BinaryWriter(n);
+                string output = JsonConvert.SerializeObject(message);
+                w.Write(output);
+                w.Flush();
+            }
+            catch (Exception)
+            {
             }
         }
     }
