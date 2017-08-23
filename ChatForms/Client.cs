@@ -18,6 +18,7 @@ namespace ChatForms
         private ChatForms chatForms;
         private string name;
         private string currentVersion = "1.1";
+        public bool loginSucceeded = false;
 
         public Client(ChatForms chatForms)
         {
@@ -50,7 +51,7 @@ namespace ChatForms
                             break;
 
                         case "login":
-                            
+                            loginSucceeded = Convert.ToBoolean(message.UserMessage);
                             break;
 
                         default:
