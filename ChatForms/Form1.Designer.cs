@@ -34,8 +34,6 @@
             this.sendBtn = new System.Windows.Forms.Button();
             this.contactsBox = new System.Windows.Forms.ListBox();
             this.contactLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.nameLabel = new System.Windows.Forms.Label();
             this.messageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -83,23 +81,6 @@
             this.contactLabel.TabIndex = 4;
             this.contactLabel.Text = "Contacts";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(13, 556);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 5;
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(13, 533);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(45, 17);
-            this.nameLabel.TabIndex = 6;
-            this.nameLabel.Text = "Name";
-            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
@@ -116,8 +97,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 590);
             this.Controls.Add(this.messageLabel);
-            this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.contactLabel);
             this.Controls.Add(this.contactsBox);
             this.Controls.Add(this.sendBtn);
@@ -126,6 +105,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChatForms";
             this.Text = "ChatForms";
+            this.Load += new System.EventHandler(this.ChatForms_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,8 +118,6 @@
         private System.Windows.Forms.Button sendBtn;
         private System.Windows.Forms.ListBox contactsBox;
         private System.Windows.Forms.Label contactLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label messageLabel;
     }
 }

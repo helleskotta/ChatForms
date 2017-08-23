@@ -16,7 +16,6 @@ namespace ChatForms
     {
         private TcpClient client;
         private ChatForms chatForms;
-        public string name;
 
         public Client(ChatForms chatForms)
         {
@@ -25,6 +24,7 @@ namespace ChatForms
 
         public void Start()
         {
+
             client = new TcpClient("192.168.25.76", 5000);
             Thread senderThread = new Thread(Listen);
             senderThread.Start();
@@ -32,26 +32,18 @@ namespace ChatForms
 
         public void Listen()
         {
-            Message message = new Message();
-
-            try
+            while (true)
             {
-                while (true)
+                try
                 {
                     NetworkStream n = client.GetStream();
-                    message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
-
-                    if (message.UserName == name)
-                    {
-                        message.UserName = "Me";
-                    }
-
-                    chatForms.WriteToChatBox(message.UserName, message.UserMessage);
+                    Message message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
+                    chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
                 }
-            }
-            catch (Exception)
-            {
-
+                catch (Exception)
+                {
+                    throw; //Console.WriteLine(ex.Message);
+                }
             }
         }
 
@@ -61,11 +53,11 @@ namespace ChatForms
             message.UserName = inputUserName;
             message.Version = "1.0";
             message.UserMessage = inputUserMessage;
-            name = inputUserName;
 
             try
             {
                 NetworkStream n = client.GetStream();
+                //message.UserMessage = Console.ReadLine();
                 BinaryWriter w = new BinaryWriter(n);
                 string output = JsonConvert.SerializeObject(message);
                 w.Write(output);
@@ -73,7 +65,7 @@ namespace ChatForms
             }
             catch (Exception)
             {
-                //Console.WriteLine(ex.Message);
+                throw;
             }
         }
     }
