@@ -14,20 +14,24 @@ namespace ChatForms
     public partial class ChatForms : Form
     {
         User user = new User();
-
         Client client;
+
         public ChatForms()
         {
             InitializeComponent();
             client = new Client(this);
-            this.Tag = "YYY";
             client.Start();
         }
         private void ChatForms_Load(object sender, EventArgs e)
         {
-            LoginBox lb = new LoginBox();
-            lb.ShowLoginForm(user, this);
+            do
+            {
+                LoginBox lb = new LoginBox();
+                lb.ShowLoginForm(user, client);
+                Thread.Sleep(200);
+            } while (client.loginSucceeded == false);
         }
+
         // Skicka-knapp
         private void sendBtn_Click(object sender, EventArgs e)
         {
@@ -41,9 +45,5 @@ namespace ChatForms
             chatBox.Items.Add($"{name}: {message}");
         }
 
-        private void ChatForms_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            client.Close();
-        }
     }
 }
