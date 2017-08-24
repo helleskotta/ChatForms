@@ -48,5 +48,12 @@ namespace ChatForms
             registerUserForm.ShowLoginForm(client, user);
             this.Visible = true;
         }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            client.QuitClient();
+            Close();
+            client.loginSucceeded = true;
+        }
     }
 }

@@ -54,5 +54,12 @@ namespace ChatForms
                 MessageBox.Show("Felaktigt användarnamn och/eller lösenord. Försök igen!");
             }
         }
+
+        private void CloseButtonNewUser_Click(object sender, EventArgs e)
+        {
+            client.QuitClient();
+            Close();
+            client.loginSucceeded = true;
+        }
     }
 }

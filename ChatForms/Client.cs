@@ -16,7 +16,7 @@ namespace ChatForms
     {
         List<Message> messages = new List<Message>();
 
-        private TcpClient server;
+        public TcpClient server;
         private ChatForms chatForms;
         private string name;
         private string currentVersion = "1.1";

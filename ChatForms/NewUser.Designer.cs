@@ -35,6 +35,7 @@
             this.usernameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.passwordBox2 = new System.Windows.Forms.TextBox();
+            this.CloseButtonNewUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CreateUserButton
@@ -119,12 +120,27 @@
             this.passwordBox2.Size = new System.Drawing.Size(197, 28);
             this.passwordBox2.TabIndex = 3;
             // 
+            // CloseButtonNewUser
+            // 
+            this.CloseButtonNewUser.BackColor = System.Drawing.Color.Black;
+            this.CloseButtonNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CloseButtonNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButtonNewUser.ForeColor = System.Drawing.Color.White;
+            this.CloseButtonNewUser.Location = new System.Drawing.Point(584, 2);
+            this.CloseButtonNewUser.Name = "CloseButtonNewUser";
+            this.CloseButtonNewUser.Size = new System.Drawing.Size(24, 26);
+            this.CloseButtonNewUser.TabIndex = 15;
+            this.CloseButtonNewUser.Text = "X";
+            this.CloseButtonNewUser.UseVisualStyleBackColor = false;
+            this.CloseButtonNewUser.Click += new System.EventHandler(this.CloseButtonNewUser_Click);
+            // 
             // NewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(609, 410);
+            this.Controls.Add(this.CloseButtonNewUser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordBox2);
             this.Controls.Add(this.CreateUserButton);
@@ -132,7 +148,9 @@
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.usernameBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NewUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewUser";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -148,5 +166,6 @@
         private System.Windows.Forms.TextBox usernameBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox passwordBox2;
+        private System.Windows.Forms.Button CloseButtonNewUser;
     }
 }
