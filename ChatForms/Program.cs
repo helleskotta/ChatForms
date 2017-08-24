@@ -17,7 +17,7 @@ namespace ChatForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChatForms());
+            Application.Run(new Form2());
         }
     }
 }

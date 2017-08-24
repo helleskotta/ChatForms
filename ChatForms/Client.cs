@@ -16,10 +16,16 @@ namespace ChatForms
     {
         private TcpClient client;
         private ChatForms chatForms;
+        private Form2 form2;
 
         public Client(ChatForms chatForms)
         {
             this.chatForms = chatForms;
+        }
+
+        public Client(Form2 form2)
+        {
+            this.form2 = form2;
         }
 
         public void Start()
@@ -42,6 +48,7 @@ namespace ChatForms
                     NetworkStream n = client.GetStream();
                     message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
                     chatForms.WriteToChatBox(message.UserName, message.UserMessage);
+                    chatForms.WriteToUserName(message.UserName);
                     //Console.WriteLine($"{message.UserName}: {message.UserMessage}");
                 }
             }

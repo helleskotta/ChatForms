@@ -22,12 +22,22 @@ namespace ChatForms
 
         private void sendBtn_Click(object sender, EventArgs e)
         {
-            client.Send(textBox1.Text , inputBox.Text);
+            client.Send(textBox1.Text, inputBox.Text);
         }
 
         public void WriteToChatBox(string name, string message)
         {
             chatBox.Items.Add($"{name}: {message}");
+        }
+
+        public void WriteToUserName(string name)
+        {
+            textBox1.AppendText(name);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
