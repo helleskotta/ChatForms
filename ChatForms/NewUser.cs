@@ -26,7 +26,7 @@ namespace ChatForms
             this.client = client;
             return ShowDialog();
         }
-
+        
         private void CreateUserButton_Click(object sender, EventArgs e)
         {
             if (usernameBox.Text.Length > 1 && passwordBox.Text.Length > 3 && passwordBox.Text == passwordBox2.Text)

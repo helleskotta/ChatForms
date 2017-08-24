@@ -39,9 +39,9 @@
             // 
             // inputBox
             // 
-            this.inputBox.Location = new System.Drawing.Point(119, 556);
+            this.inputBox.Location = new System.Drawing.Point(12, 556);
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(537, 22);
+            this.inputBox.Size = new System.Drawing.Size(563, 22);
             this.inputBox.TabIndex = 0;
             // 
             // chatBox
@@ -55,7 +55,7 @@
             // 
             // sendBtn
             // 
-            this.sendBtn.Location = new System.Drawing.Point(663, 556);
+            this.sendBtn.Location = new System.Drawing.Point(581, 556);
             this.sendBtn.Name = "sendBtn";
             this.sendBtn.Size = new System.Drawing.Size(75, 23);
             this.sendBtn.TabIndex = 2;
@@ -84,7 +84,7 @@
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
-            this.messageLabel.Location = new System.Drawing.Point(116, 533);
+            this.messageLabel.Location = new System.Drawing.Point(9, 533);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(114, 17);
             this.messageLabel.TabIndex = 7;
