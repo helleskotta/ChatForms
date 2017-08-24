@@ -14,11 +14,33 @@ namespace ChatForms
 {
     public class Client
     {
-        private TcpClient client;
+        List<Message> messages = new List<Message>();
+
+        private TcpClient server;
         private ChatForms chatForms;
         private string name;
         private string currentVersion = "1.1";
         public bool loginSucceeded = false;
+
+        public void QuitClient()
+        {
+            lock (messages)
+            {
+                if (messages.Count == 0)
+                {
+                    messages.Add(new Message { UserMessage = "quit" });
+                }
+                else
+                {
+                    Message message = messages.ElementAt(0);
+                    message.UserMessage = "quit";
+                }
+
+                Monitor.PulseAll(messages);
+            }
+
+            server.Close();
+        }
 
         public Client(ChatForms chatForms)
         {
@@ -27,45 +49,122 @@ namespace ChatForms
 
         public void Start()
         {
-            client = new TcpClient("192.168.25.76", 5000);
-            Thread senderThread = new Thread(Listen);
-            senderThread.Start();
+            server = new TcpClient("192.168.25.76", 5000);
+            //Thread senderThread = new Thread(Listen);
+            //senderThread.Start();
+
+            Thread listenWithQueueThread = new Thread(ListenWithQueue);
+            listenWithQueueThread.Start();
+
+            Thread AddMessagesToQueueThread = new Thread(AddMessagesToQueue);
+            AddMessagesToQueueThread.Start();
         }
 
-        public void Listen()
+        private void AddMessagesToQueue()
         {
-            while (true)
+            bool quit = false;
+
+            while (!quit)
             {
                 try
                 {
-                    NetworkStream n = client.GetStream();
+                    NetworkStream n = server.GetStream();
                     Message message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
 
-                    if (message.UserName == name)
-                        message.UserName = "Me";
-
-                    switch (message.Action)
+                    lock (messages)
                     {
-                        case "sendMessage":
-                            chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
-                            break;
-
-                        case "login":
-                            loginSucceeded = Convert.ToBoolean(message.UserMessage);
-                            break;
-
-                        default:
-                            break;
+                        messages.Add(message);
+                        Monitor.PulseAll(messages);
                     }
 
-
+                    quit = message.UserMessage.ToLower() == "quit";
                 }
-                catch (Exception)
+                catch
                 {
-                    throw; //Console.WriteLine(ex.Message);
+                    quit = true;
                 }
             }
         }
+
+        private void ListenWithQueue()
+        {
+            bool quit = false;
+            Message message;
+
+            while (!quit)
+            {
+                lock (messages)
+                {
+                    while (messages.Count == 0)
+                    {
+                        Monitor.Wait(messages);
+                    }
+
+                    message = messages.ElementAt(0);
+
+                    quit = message.UserMessage.ToLower() == "quit";
+
+                    if (!quit)
+                    {
+
+                        if (message.UserMessage.ToLower() != "quit")
+                            messages.RemoveAt(0);
+
+                        if (message.UserName == name)
+                            message.UserName = "Me";
+
+                        switch (message.Action)
+                        {
+                            case "sendMessage":
+                                chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
+                                break;
+
+                            case "login":
+                                loginSucceeded = Convert.ToBoolean(message.UserMessage);
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
+        //public void Listen()
+        //{
+        //    while (true)
+        //    {
+        //        try
+        //        {
+        //            NetworkStream n = client.GetStream();
+        //            Message message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
+
+        //            if (message.UserName == name)
+        //                message.UserName = "Me";
+
+        //            switch (message.Action)
+        //            {
+        //                case "sendMessage":
+        //                    chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
+        //                    break;
+
+        //                case "login":
+        //                    loginSucceeded = Convert.ToBoolean(message.UserMessage);
+        //                    break;
+
+        //                default:
+        //                    break;
+        //            }
+
+
+        //        }
+        //        catch (Exception)
+        //        {
+        //            throw; //Console.WriteLine(ex.Message);
+        //        }
+        //    }
+        //}
 
         public void Send(string inputUserName, string inputUserMessage)
         {
@@ -78,7 +177,7 @@ namespace ChatForms
 
             try
             {
-                NetworkStream n = client.GetStream();
+                NetworkStream n = server.GetStream();
                 BinaryWriter w = new BinaryWriter(n);
                 string output = JsonConvert.SerializeObject(message);
                 w.Write(output);
@@ -101,7 +200,30 @@ namespace ChatForms
 
             try
             {
-                NetworkStream n = client.GetStream();
+                NetworkStream n = server.GetStream();
+                BinaryWriter w = new BinaryWriter(n);
+                string output = JsonConvert.SerializeObject(message);
+                w.Write(output);
+                w.Flush();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+
+        public void Create(string inputUserName, string inputUserPassword)
+        {
+            Message message = new Message();
+            message.UserName = inputUserName;
+            message.Version = currentVersion;
+            message.UserMessage = inputUserPassword;
+            name = inputUserName;
+            message.Action = "createUser";
+
+            try
+            {
+                NetworkStream n = server.GetStream();
                 BinaryWriter w = new BinaryWriter(n);
                 string output = JsonConvert.SerializeObject(message);
                 w.Write(output);

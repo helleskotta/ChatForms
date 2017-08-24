@@ -45,5 +45,9 @@ namespace ChatForms
             chatBox.Items.Add($"{name}: {message}");
         }
 
+        private void ChatForms_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            client.QuitClient();
+        }
     }
 }
