@@ -15,10 +15,12 @@ namespace ChatForms
     {
         User user = new User();
         Client client;
+        List<string> contactList = new List<string>();
 
         public ChatForms()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false; // lyssnar på alla trådar
             client = new Client(this);
             client.Start();
         }
@@ -28,7 +30,8 @@ namespace ChatForms
             {
                 LoginBox lb = new LoginBox();
                 lb.ShowLoginForm(user, client);
-                Thread.Sleep(200);
+                Thread.Sleep(600);
+
             } while (client.loginSucceeded == false);
         }
 
@@ -48,6 +51,22 @@ namespace ChatForms
         private void ChatForms_FormClosing(object sender, FormClosingEventArgs e)
         {
             client.QuitClient();
+        }
+        // Kontaktruta
+        public void DisplayContacts(string[] contactList)
+        {
+            contactsBox.Items.Clear();
+
+            if (contactList != null && contactList.Length > 0)
+            {
+                foreach (var name in contactList)
+                {
+                    if (name.Length > 0)
+                    {
+                        contactsBox.Items.Add($"{name}");
+                    }
+                }
+            }
         }
     }
 }

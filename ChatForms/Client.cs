@@ -123,10 +123,20 @@ namespace ChatForms
                                 loginSucceeded = Convert.ToBoolean(message.UserMessage);
                                 break;
 
-                            default:
-                                break;
-                        }
+                        case "usersOnline":
+                            string[] contactList = message.UserMessage.Split(';');
+                            //chatForms.Invoke(new Action<string[]>(chatForms.DisplayContacts), contactList);
+                            chatForms.DisplayContacts(contactList);
+                            break;
+
+                        default:
+                            break;
                     }
+                }
+
+                catch (Exception)
+                {
+                    throw; //Console.WriteLine(ex.Message);
                 }
             }
         }
