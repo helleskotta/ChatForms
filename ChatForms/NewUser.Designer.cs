@@ -97,7 +97,7 @@
             this.usernameBox.Location = new System.Drawing.Point(88, 174);
             this.usernameBox.Multiline = true;
             this.usernameBox.Name = "usernameBox";
-            this.usernameBox.Size = new System.Drawing.Size(197, 28);
+            this.usernameBox.Size = new System.Drawing.Size(433, 28);
             this.usernameBox.TabIndex = 1;
             // 
             // label1
