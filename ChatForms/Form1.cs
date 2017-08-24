@@ -32,7 +32,11 @@ namespace ChatForms
                 lb.ShowLoginForm(user, client);
                 Thread.Sleep(600);
 
-            } while (!client.loginSucceeded);
+            } while (client.loginSucceeded == false);
+            if (client.server.Connected == false)
+            {
+                this.Close();
+            }
         }
 
         // Skicka-knapp
