@@ -26,13 +26,13 @@ namespace ChatForms
         }
         private void ChatForms_Load(object sender, EventArgs e)
         {
+            LoginBox lb = new LoginBox();
             do
             {
-                LoginBox lb = new LoginBox();
                 lb.ShowLoginForm(user, client);
                 Thread.Sleep(600);
 
-            } while (client.loginSucceeded == false);
+            } while (!client.loginSucceeded);
         }
 
         // Skicka-knapp
@@ -67,6 +67,11 @@ namespace ChatForms
                     }
                 }
             }
+        }
+
+        private void contactsBox_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

@@ -71,6 +71,7 @@
             this.contactsBox.Name = "contactsBox";
             this.contactsBox.Size = new System.Drawing.Size(210, 484);
             this.contactsBox.TabIndex = 3;
+            this.contactsBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.contactsBox_MouseClick);
             // 
             // contactLabel
             // 

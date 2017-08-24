@@ -83,7 +83,7 @@
             this.passwordBox.Multiline = true;
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(197, 28);
-            this.passwordBox.TabIndex = 8;
+            this.passwordBox.TabIndex = 2;
             // 
             // usernameBox
             // 
@@ -94,7 +94,7 @@
             this.usernameBox.Multiline = true;
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(197, 28);
-            this.usernameBox.TabIndex = 7;
+            this.usernameBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -117,7 +117,7 @@
             this.passwordBox2.Multiline = true;
             this.passwordBox2.Name = "passwordBox2";
             this.passwordBox2.Size = new System.Drawing.Size(197, 28);
-            this.passwordBox2.TabIndex = 13;
+            this.passwordBox2.TabIndex = 3;
             // 
             // NewUser
             // 

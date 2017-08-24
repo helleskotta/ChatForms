@@ -21,6 +21,7 @@ namespace ChatForms
         private string name;
         private string currentVersion = "1.1";
         public bool loginSucceeded = false;
+        public bool createUserSucceeded = false;
 
         public void QuitClient()
         {
@@ -95,9 +96,6 @@ namespace ChatForms
             {
                 try
                 {
-
-
-
                     lock (messages)
                     {
                         while (messages.Count == 0)
@@ -134,6 +132,10 @@ namespace ChatForms
                                     chatForms.DisplayContacts(contactList);
                                     break;
 
+                                case "createUser":
+                                    createUserSucceeded = Convert.ToBoolean(message.UserMessage);
+                                    break;
+
                                 default:
                                     break;
                             }
@@ -147,6 +149,7 @@ namespace ChatForms
             }
         }
 
+        #region Bortkommenterad kod
         //public void Listen()
         //{
         //    while (true)
@@ -181,6 +184,7 @@ namespace ChatForms
         //        }
         //    }
         //}
+        #endregion
 
         public void Send(string inputUserName, string inputUserMessage)
         {
@@ -247,6 +251,7 @@ namespace ChatForms
             }
             catch (Exception)
             {
+
             }
         }
     }
