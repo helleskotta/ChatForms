@@ -93,47 +93,53 @@ namespace ChatForms
 
             while (!quit)
             {
-                lock (messages)
+                try
                 {
-                    while (messages.Count == 0)
+
+
+
+                    lock (messages)
                     {
-                        Monitor.Wait(messages);
-                    }
-
-                    message = messages.ElementAt(0);
-
-                    quit = message.UserMessage.ToLower() == "quit";
-
-                    if (!quit)
-                    {
-
-                        if (message.UserMessage.ToLower() != "quit")
-                            messages.RemoveAt(0);
-
-                        if (message.UserName == name)
-                            message.UserName = "Me";
-
-                        switch (message.Action)
+                        while (messages.Count == 0)
                         {
-                            case "sendMessage":
-                                chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
-                                break;
+                            Monitor.Wait(messages);
+                        }
 
-                            case "login":
-                                loginSucceeded = Convert.ToBoolean(message.UserMessage);
-                                break;
+                        message = messages.ElementAt(0);
 
-                        case "usersOnline":
-                            string[] contactList = message.UserMessage.Split(';');
-                            //chatForms.Invoke(new Action<string[]>(chatForms.DisplayContacts), contactList);
-                            chatForms.DisplayContacts(contactList);
-                            break;
+                        quit = message.UserMessage.ToLower() == "quit";
 
-                        default:
-                            break;
+                        if (!quit)
+                        {
+
+                            if (message.UserMessage.ToLower() != "quit")
+                                messages.RemoveAt(0);
+
+                            if (message.UserName == name)
+                                message.UserName = "Me";
+
+                            switch (message.Action)
+                            {
+                                case "sendMessage":
+                                    chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
+                                    break;
+
+                                case "login":
+                                    loginSucceeded = Convert.ToBoolean(message.UserMessage);
+                                    break;
+
+                                case "usersOnline":
+                                    string[] contactList = message.UserMessage.Split(';');
+                                    //chatForms.Invoke(new Action<string[]>(chatForms.DisplayContacts), contactList);
+                                    chatForms.DisplayContacts(contactList);
+                                    break;
+
+                                default:
+                                    break;
+                            }
+                        }
                     }
                 }
-
                 catch (Exception)
                 {
                     throw; //Console.WriteLine(ex.Message);
