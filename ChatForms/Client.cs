@@ -23,6 +23,7 @@ namespace ChatForms
         public bool loginSucceeded = false;
         public bool createUserSucceeded = false;
 
+        // Stäng alla trådar i klienten
         public void QuitClient()
         {
             lock (messages)
@@ -186,6 +187,7 @@ namespace ChatForms
         //}
         #endregion
 
+        // Skicka meddelande
         public void Send(string inputUserName, string inputUserMessage)
         {
             Message message = new Message();
@@ -209,6 +211,7 @@ namespace ChatForms
             }
         }
 
+        // Logga in användare
         public void Login(string inputUserName, string inputUserPassword)
         {
             Message message = new Message();
@@ -231,7 +234,7 @@ namespace ChatForms
             }
         }
 
-
+        // Skapa användare
         public void Create(string inputUserName, string inputUserPassword)
         {
             Message message = new Message();
