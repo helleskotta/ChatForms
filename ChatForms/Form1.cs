@@ -30,7 +30,15 @@ namespace ChatForms
             do
             {
                 lb.ShowLoginForm(user, client);
-                Thread.Sleep(600);
+
+                for (int i = 0; i < 50; i++)
+                {
+                    Thread.Sleep(100);
+                    if (client.loginSucceeded == true)
+                    {
+                        break;
+                    }
+                }
 
             } while (client.loginSucceeded == false);
             if (client.server.Connected == false)
