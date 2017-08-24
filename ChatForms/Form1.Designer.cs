@@ -35,74 +35,109 @@
             this.contactsBox = new System.Windows.Forms.ListBox();
             this.contactLabel = new System.Windows.Forms.Label();
             this.messageLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CloseButtonNewUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inputBox
             // 
-            this.inputBox.Location = new System.Drawing.Point(12, 556);
+            this.inputBox.Location = new System.Drawing.Point(31, 550);
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(563, 22);
+            this.inputBox.Size = new System.Drawing.Size(544, 22);
             this.inputBox.TabIndex = 0;
             // 
             // chatBox
             // 
+            this.chatBox.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chatBox.FormattingEnabled = true;
-            this.chatBox.ItemHeight = 16;
-            this.chatBox.Location = new System.Drawing.Point(12, 30);
+            this.chatBox.ItemHeight = 18;
+            this.chatBox.Location = new System.Drawing.Point(31, 96);
             this.chatBox.Name = "chatBox";
-            this.chatBox.Size = new System.Drawing.Size(644, 484);
+            this.chatBox.Size = new System.Drawing.Size(626, 418);
             this.chatBox.TabIndex = 1;
             // 
             // sendBtn
             // 
-            this.sendBtn.Location = new System.Drawing.Point(581, 556);
+            this.sendBtn.BackColor = System.Drawing.Color.White;
+            this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.sendBtn.Font = new System.Drawing.Font("Open Sans Extrabold", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendBtn.Location = new System.Drawing.Point(581, 550);
             this.sendBtn.Name = "sendBtn";
-            this.sendBtn.Size = new System.Drawing.Size(75, 23);
+            this.sendBtn.Size = new System.Drawing.Size(76, 22);
             this.sendBtn.TabIndex = 2;
             this.sendBtn.Text = "Send";
-            this.sendBtn.UseVisualStyleBackColor = true;
+            this.sendBtn.UseVisualStyleBackColor = false;
             this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
             // contactsBox
             // 
             this.contactsBox.FormattingEnabled = true;
             this.contactsBox.ItemHeight = 16;
-            this.contactsBox.Location = new System.Drawing.Point(663, 30);
+            this.contactsBox.Location = new System.Drawing.Point(667, 94);
             this.contactsBox.Name = "contactsBox";
-            this.contactsBox.Size = new System.Drawing.Size(210, 484);
+            this.contactsBox.Size = new System.Drawing.Size(161, 420);
             this.contactsBox.TabIndex = 3;
             this.contactsBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.contactsBox_MouseClick);
             // 
             // contactLabel
             // 
             this.contactLabel.AutoSize = true;
-            this.contactLabel.Location = new System.Drawing.Point(662, 10);
+            this.contactLabel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactLabel.Location = new System.Drawing.Point(662, 63);
             this.contactLabel.Name = "contactLabel";
-            this.contactLabel.Size = new System.Drawing.Size(63, 17);
+            this.contactLabel.Size = new System.Drawing.Size(146, 27);
             this.contactLabel.TabIndex = 4;
-            this.contactLabel.Text = "Contacts";
+            this.contactLabel.Text = "Who is online?";
             // 
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
-            this.messageLabel.Location = new System.Drawing.Point(9, 533);
+            this.messageLabel.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageLabel.Location = new System.Drawing.Point(34, 524);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(114, 17);
+            this.messageLabel.Size = new System.Drawing.Size(147, 23);
             this.messageLabel.TabIndex = 7;
             this.messageLabel.Text = "Write a message";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Open Sans", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(31, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(347, 38);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Welcome to ChatForms!";
+            // 
+            // CloseButtonNewUser
+            // 
+            this.CloseButtonNewUser.BackColor = System.Drawing.Color.DarkRed;
+            this.CloseButtonNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CloseButtonNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButtonNewUser.ForeColor = System.Drawing.Color.White;
+            this.CloseButtonNewUser.Location = new System.Drawing.Point(861, 12);
+            this.CloseButtonNewUser.Name = "CloseButtonNewUser";
+            this.CloseButtonNewUser.Size = new System.Drawing.Size(24, 26);
+            this.CloseButtonNewUser.TabIndex = 16;
+            this.CloseButtonNewUser.Text = "X";
+            this.CloseButtonNewUser.UseVisualStyleBackColor = false;
             // 
             // ChatForms
             // 
             this.AcceptButton = this.sendBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(897, 590);
+            this.Controls.Add(this.CloseButtonNewUser);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.contactLabel);
             this.Controls.Add(this.contactsBox);
             this.Controls.Add(this.sendBtn);
             this.Controls.Add(this.chatBox);
             this.Controls.Add(this.inputBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChatForms";
             this.Text = "ChatForms";
@@ -121,6 +156,8 @@
         private System.Windows.Forms.ListBox contactsBox;
         private System.Windows.Forms.Label contactLabel;
         private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button CloseButtonNewUser;
     }
 }
 
