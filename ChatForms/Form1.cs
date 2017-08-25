@@ -104,5 +104,12 @@ namespace ChatForms
             this.Visible = false;
             ShowDialog();
         }
+
+        private void CloseButtonNewUser_Click(object sender, EventArgs e)
+        {
+            client.QuitClient();
+            Close();
+            client.loginSucceeded = true;
+        }
     }
 }
