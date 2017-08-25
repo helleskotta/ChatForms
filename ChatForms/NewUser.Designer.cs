@@ -44,10 +44,13 @@
             // CreateUserButton
             // 
             this.CreateUserButton.BackColor = System.Drawing.Color.Firebrick;
+            this.CreateUserButton.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
+            this.CreateUserButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.CreateUserButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.CreateUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateUserButton.ForeColor = System.Drawing.Color.White;
-            this.CreateUserButton.Location = new System.Drawing.Point(66, 251);
-            this.CreateUserButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CreateUserButton.Location = new System.Drawing.Point(88, 261);
             this.CreateUserButton.Name = "CreateUserButton";
             this.CreateUserButton.Size = new System.Drawing.Size(325, 37);
             this.CreateUserButton.TabIndex = 12;
@@ -61,10 +64,9 @@
             this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
             this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameLabel.ForeColor = System.Drawing.Color.Black;
-            this.UsernameLabel.Location = new System.Drawing.Point(62, 118);
-            this.UsernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UsernameLabel.Location = new System.Drawing.Point(83, 118);
             this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(83, 20);
+            this.UsernameLabel.Size = new System.Drawing.Size(102, 25);
             this.UsernameLabel.TabIndex = 11;
             this.UsernameLabel.Text = "Username";
             // 
@@ -74,37 +76,31 @@
             this.PasswordLabel.BackColor = System.Drawing.Color.Transparent;
             this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordLabel.ForeColor = System.Drawing.Color.Black;
-            this.PasswordLabel.Location = new System.Drawing.Point(62, 178);
-            this.PasswordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PasswordLabel.Location = new System.Drawing.Point(83, 183);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(78, 20);
+            this.PasswordLabel.Size = new System.Drawing.Size(98, 25);
             this.PasswordLabel.TabIndex = 9;
             this.PasswordLabel.Text = "Password";
             // 
             // passwordBox
             // 
             this.passwordBox.BackColor = System.Drawing.Color.White;
-            this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordBox.ForeColor = System.Drawing.Color.Black;
-            this.passwordBox.Location = new System.Drawing.Point(66, 202);
-            this.passwordBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.passwordBox.Multiline = true;
+            this.passwordBox.Location = new System.Drawing.Point(88, 211);
             this.passwordBox.Name = "passwordBox";
-            this.passwordBox.Size = new System.Drawing.Size(148, 23);
+            this.passwordBox.Size = new System.Drawing.Size(197, 22);
             this.passwordBox.TabIndex = 2;
             this.passwordBox.TextChanged += new System.EventHandler(this.passwordBox_TextChanged);
             // 
             // usernameBox
             // 
             this.usernameBox.BackColor = System.Drawing.Color.White;
-            this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameBox.ForeColor = System.Drawing.Color.Black;
-            this.usernameBox.Location = new System.Drawing.Point(66, 141);
-            this.usernameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.usernameBox.Multiline = true;
+            this.usernameBox.Location = new System.Drawing.Point(88, 146);
             this.usernameBox.Name = "usernameBox";
-            this.usernameBox.Size = new System.Drawing.Size(325, 23);
+            this.usernameBox.Size = new System.Drawing.Size(433, 22);
             this.usernameBox.TabIndex = 1;
+            this.usernameBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -112,36 +108,34 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(239, 178);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(319, 183);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 20);
+            this.label1.Size = new System.Drawing.Size(162, 25);
             this.label1.TabIndex = 14;
             this.label1.Text = "Retype password";
             // 
             // passwordBox2
             // 
             this.passwordBox2.BackColor = System.Drawing.Color.White;
-            this.passwordBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordBox2.ForeColor = System.Drawing.Color.Black;
-            this.passwordBox2.Location = new System.Drawing.Point(243, 202);
-            this.passwordBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.passwordBox2.Multiline = true;
+            this.passwordBox2.Location = new System.Drawing.Point(324, 211);
             this.passwordBox2.Name = "passwordBox2";
-            this.passwordBox2.Size = new System.Drawing.Size(148, 23);
+            this.passwordBox2.Size = new System.Drawing.Size(197, 22);
             this.passwordBox2.TabIndex = 3;
             this.passwordBox2.TextChanged += new System.EventHandler(this.passwordBox2_TextChanged);
             // 
             // CloseButtonNewUser
             // 
-            this.CloseButtonNewUser.BackColor = System.Drawing.Color.DarkRed;
-            this.CloseButtonNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.CloseButtonNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseButtonNewUser.ForeColor = System.Drawing.Color.White;
-            this.CloseButtonNewUser.Location = new System.Drawing.Point(450, 10);
-            this.CloseButtonNewUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CloseButtonNewUser.BackColor = System.Drawing.Color.Transparent;
+            this.CloseButtonNewUser.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
+            this.CloseButtonNewUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.CloseButtonNewUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.CloseButtonNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButtonNewUser.Font = new System.Drawing.Font("Perpetua Titling MT", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButtonNewUser.ForeColor = System.Drawing.Color.DarkRed;
+            this.CloseButtonNewUser.Location = new System.Drawing.Point(577, -2);
             this.CloseButtonNewUser.Name = "CloseButtonNewUser";
-            this.CloseButtonNewUser.Size = new System.Drawing.Size(18, 21);
+            this.CloseButtonNewUser.Size = new System.Drawing.Size(28, 32);
             this.CloseButtonNewUser.TabIndex = 15;
             this.CloseButtonNewUser.Text = "X";
             this.CloseButtonNewUser.UseVisualStyleBackColor = false;
@@ -150,11 +144,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(186, 39);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Font = new System.Drawing.Font("Rockwell Extra Bold", 25F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(203, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 26);
+            this.label2.Size = new System.Drawing.Size(236, 50);
             this.label2.TabIndex = 16;
             this.label2.Text = "ChatBox";
             // 
@@ -162,10 +155,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(184, 70);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(245, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 18);
+            this.label3.Size = new System.Drawing.Size(145, 24);
             this.label3.TabIndex = 17;
             this.label3.Text = "create new user";
             // 
@@ -174,7 +166,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(477, 335);
+            this.ClientSize = new System.Drawing.Size(606, 351);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CloseButtonNewUser);
@@ -192,6 +184,9 @@
             this.Name = "NewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewUser";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.NewUser_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.NewUser_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.NewUser_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 

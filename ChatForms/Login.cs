@@ -14,6 +14,7 @@ namespace ChatForms
     {
         User user;
         Client client;
+        private bool mouseDown { get; set; } = false;
 
         public LoginBox()
         {
@@ -72,9 +73,20 @@ namespace ChatForms
             }
         }
 
-        private void passwordBox_TextChanged(object sender, EventArgs e)
+        private void LoginBox_MouseDown(object sender, MouseEventArgs e)
         {
-            passwordBox.PasswordChar = '*';
+            mouseDown = true;
+        }
+
+        private void LoginBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void LoginBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+                this.Location = MousePosition;
         }
     }
 }

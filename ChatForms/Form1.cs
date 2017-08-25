@@ -18,6 +18,7 @@ namespace ChatForms
         List<string> contactList = new List<string>();
         public bool ifPrivate = false;
         public string privateName = "";
+        private bool mouseDown { get; set; } = false;
 
         public ChatForms()
         {
@@ -110,6 +111,22 @@ namespace ChatForms
             client.QuitClient();
             Close();
             client.loginSucceeded = true;
+        }
+
+        private void ChatForms_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+        }
+
+        private void ChatForms_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void ChatForms_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+                this.Location = MousePosition;
         }
     }
 }
