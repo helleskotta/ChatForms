@@ -64,6 +64,7 @@
             this.passwordBox.Size = new System.Drawing.Size(233, 28);
             this.passwordBox.TabIndex = 1;
             this.passwordBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.passwordBox.UseSystemPasswordChar = true;
             this.passwordBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordBox_KeyDown);
             // 
             // PasswordLabel

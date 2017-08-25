@@ -42,21 +42,22 @@
             // 
             // inputBox
             // 
-            this.inputBox.Location = new System.Drawing.Point(41, 646);
+            this.inputBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputBox.Location = new System.Drawing.Point(41, 626);
             this.inputBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(580, 22);
+            this.inputBox.Size = new System.Drawing.Size(580, 27);
             this.inputBox.TabIndex = 0;
             // 
             // chatBox
             // 
-            this.chatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chatBox.FormattingEnabled = true;
-            this.chatBox.ItemHeight = 16;
+            this.chatBox.ItemHeight = 22;
             this.chatBox.Location = new System.Drawing.Point(41, 118);
             this.chatBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.chatBox.Name = "chatBox";
-            this.chatBox.Size = new System.Drawing.Size(832, 484);
+            this.chatBox.Size = new System.Drawing.Size(832, 466);
             this.chatBox.TabIndex = 1;
             // 
             // sendBtn
@@ -67,7 +68,7 @@
             this.sendBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sendBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendBtn.Location = new System.Drawing.Point(688, 634);
+            this.sendBtn.Location = new System.Drawing.Point(687, 626);
             this.sendBtn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.sendBtn.Name = "sendBtn";
             this.sendBtn.Size = new System.Drawing.Size(101, 34);
@@ -78,12 +79,13 @@
             // 
             // contactsBox
             // 
+            this.contactsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactsBox.FormattingEnabled = true;
-            this.contactsBox.ItemHeight = 16;
+            this.contactsBox.ItemHeight = 20;
             this.contactsBox.Location = new System.Drawing.Point(889, 116);
             this.contactsBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.contactsBox.Name = "contactsBox";
-            this.contactsBox.Size = new System.Drawing.Size(161, 484);
+            this.contactsBox.Size = new System.Drawing.Size(161, 464);
             this.contactsBox.TabIndex = 3;
             this.contactsBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.contactsBox_MouseClick);
             // 
@@ -102,7 +104,7 @@
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageLabel.Location = new System.Drawing.Point(37, 624);
+            this.messageLabel.Location = new System.Drawing.Point(37, 604);
             this.messageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(151, 20);
@@ -147,7 +149,7 @@
             this.LogOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LogOutButton.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogOutButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LogOutButton.Location = new System.Drawing.Point(881, 634);
+            this.LogOutButton.Location = new System.Drawing.Point(881, 623);
             this.LogOutButton.Margin = new System.Windows.Forms.Padding(5);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Size = new System.Drawing.Size(169, 34);
