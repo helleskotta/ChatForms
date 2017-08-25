@@ -85,5 +85,12 @@ namespace ChatForms
         {
 
         }
+
+        private void CloseButtonNewUser_Click(object sender, EventArgs e)
+        {
+            client.QuitClient();
+            Close();
+            client.loginSucceeded = true;
+        }
     }
 }
