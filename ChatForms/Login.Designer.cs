@@ -46,7 +46,7 @@
             this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameBox.ForeColor = System.Drawing.Color.Black;
             this.usernameBox.Location = new System.Drawing.Point(49, 145);
-            this.usernameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usernameBox.Margin = new System.Windows.Forms.Padding(2);
             this.usernameBox.Multiline = true;
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(175, 23);
@@ -59,11 +59,12 @@
             this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordBox.ForeColor = System.Drawing.Color.Black;
             this.passwordBox.Location = new System.Drawing.Point(241, 145);
-            this.passwordBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordBox.Multiline = true;
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(175, 23);
             this.passwordBox.TabIndex = 1;
+            this.passwordBox.TextChanged += new System.EventHandler(this.passwordBox_TextChanged);
             this.passwordBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordBox_KeyDown);
             // 
             // PasswordLabel
@@ -87,7 +88,7 @@
             this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginButton.ForeColor = System.Drawing.Color.White;
             this.LoginButton.Location = new System.Drawing.Point(49, 213);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(2);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(175, 37);
             this.LoginButton.TabIndex = 4;
@@ -115,7 +116,7 @@
             this.CreateUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateUserButton.ForeColor = System.Drawing.Color.White;
             this.CreateUserButton.Location = new System.Drawing.Point(241, 213);
-            this.CreateUserButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CreateUserButton.Margin = new System.Windows.Forms.Padding(2);
             this.CreateUserButton.Name = "CreateUserButton";
             this.CreateUserButton.Size = new System.Drawing.Size(175, 37);
             this.CreateUserButton.TabIndex = 6;
@@ -129,7 +130,7 @@
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CloseButton.ForeColor = System.Drawing.Color.White;
             this.CloseButton.Location = new System.Drawing.Point(439, 10);
-            this.CloseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(2);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(21, 23);
             this.CloseButton.TabIndex = 7;
@@ -180,7 +181,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome to ChatForms";

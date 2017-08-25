@@ -64,5 +64,15 @@ namespace ChatForms
             Close();
             client.loginSucceeded = true;
         }
+
+        private void passwordBox_TextChanged(object sender, EventArgs e)
+        {
+            passwordBox.PasswordChar = '*';
+        }
+
+        private void passwordBox2_TextChanged(object sender, EventArgs e)
+        {
+            passwordBox2.PasswordChar = '*';
+        }
     }
 }

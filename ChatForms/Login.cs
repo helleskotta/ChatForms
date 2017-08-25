@@ -71,5 +71,10 @@ namespace ChatForms
                 LoginButton.PerformClick();
             }
         }
+
+        private void passwordBox_TextChanged(object sender, EventArgs e)
+        {
+            passwordBox.PasswordChar = '*';
+        }
     }
 }
