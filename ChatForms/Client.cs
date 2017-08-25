@@ -14,72 +14,269 @@ namespace ChatForms
 {
     public class Client
     {
-        private TcpClient client;
+        List<Message> messages = new List<Message>();
+
+        public TcpClient server;
         private ChatForms chatForms;
-        private Form2 form2;
+        private string name;
+        private string currentVersion = "1.1";
+        public bool loginSucceeded = false;
+        public bool createUserSucceeded = false;
+
+        // Stäng alla trådar i klienten
+        public void QuitClient()
+        {
+            lock (messages)
+            {
+                if (messages.Count == 0)
+                {
+                    messages.Add(new Message { UserMessage = "--quit--" });
+                }
+                else
+                {
+                    Message message = messages.ElementAt(0);
+                    message.UserMessage = "--quit--";
+                }
+
+                Monitor.PulseAll(messages);
+            }
+
+            server.Close();
+        }
 
         public Client(ChatForms chatForms)
         {
             this.chatForms = chatForms;
         }
 
-        public Client(Form2 form2)
-        {
-            this.form2 = form2;
-        }
-
         public void Start()
         {
+            server = new TcpClient("192.168.25.76", 5000);
+            //Thread senderThread = new Thread(Listen);
+            //senderThread.Start();
 
-            client = new TcpClient("192.168.25.76", 5000);
+            Thread listenWithQueueThread = new Thread(ListenWithQueue);
+            listenWithQueueThread.Start();
 
-            Thread senderThread = new Thread(Listen);
-            senderThread.Start();
+            Thread AddMessagesToQueueThread = new Thread(AddMessagesToQueue);
+            AddMessagesToQueueThread.Start();
         }
 
-        public void Listen()
+        public void AddMessagesToQueue()
         {
-            Message message = new Message();
+            bool quit = false;
 
-            try
+            while (!quit)
             {
-                while (true)
+                try
                 {
-                    NetworkStream n = client.GetStream();
-                    message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
-                    chatForms.WriteToChatBox(message.UserName, message.UserMessage);
-                    chatForms.WriteToUserName(message.UserName);
-                    //Console.WriteLine($"{message.UserName}: {message.UserMessage}");
+                    NetworkStream n = server.GetStream();
+                    Message message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
+
+                    lock (messages)
+                    {
+                        messages.Add(message);
+                        Monitor.PulseAll(messages);
+                    }
+
+                    quit = message.UserMessage.ToLower() == "--quit--";
+                }
+                catch
+                {
+                    quit = true;
                 }
             }
-            catch (Exception ex)
+        }
+
+        private void ListenWithQueue()
+        {
+            bool quit = false;
+            Message message;
+
+            while (!quit)
             {
-                //Console.WriteLine(ex.Message);
+                try
+                {
+                    lock (messages)
+                    {
+                        while (messages.Count == 0)
+                        {
+                            Monitor.Wait(messages);
+                        }
+
+                        message = messages.ElementAt(0);
+
+                        quit = message.UserMessage.ToLower() == "--quit--";
+
+                        if (!quit)
+                        {
+
+                            if (message.UserMessage.ToLower() != "--quit--")
+                                messages.RemoveAt(0);
+
+                            if (message.UserName == name)
+                                message.UserName = "Me";
+
+                            switch (message.Action)
+                            {
+                                case "sendMessage":
+                                    chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
+                                    break;
+
+                                case "login":
+                                    loginSucceeded = Convert.ToBoolean(message.UserMessage);
+                                    break;
+
+                                case "usersOnline":
+                                    string[] contactList = message.UserMessage.Split(';');
+                                    //chatForms.Invoke(new Action<string[]>(chatForms.DisplayContacts), contactList);
+                                    chatForms.DisplayContacts(contactList);
+                                    break;
+
+                                case "createUser":
+                                    createUserSucceeded = Convert.ToBoolean(message.UserMessage);
+                                    break;
+
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    throw; //Console.WriteLine(ex.Message);
+                }
             }
         }
 
+        #region Bortkommenterad kod
+        //public void Listen()
+        //{
+        //    while (true)
+        //    {
+        //        try
+        //        {
+        //            NetworkStream n = client.GetStream();
+        //            Message message = JsonConvert.DeserializeObject<Message>(new BinaryReader(n).ReadString());
+
+        //            if (message.UserName == name)
+        //                message.UserName = "Me";
+
+        //            switch (message.Action)
+        //            {
+        //                case "sendMessage":
+        //                    chatForms.Invoke(new Action<string, string>(chatForms.WriteToChatBox), message.UserName, message.UserMessage);
+        //                    break;
+
+        //                case "login":
+        //                    loginSucceeded = Convert.ToBoolean(message.UserMessage);
+        //                    break;
+
+        //                default:
+        //                    break;
+        //            }
+
+
+        //        }
+        //        catch (Exception)
+        //        {
+        //            throw; //Console.WriteLine(ex.Message);
+        //        }
+        //    }
+        //}
+        #endregion
+
+        // Skicka meddelande
         public void Send(string inputUserName, string inputUserMessage)
         {
             Message message = new Message();
             message.UserName = inputUserName;
-            message.Version = "1.0";
+            message.Version = currentVersion;
             message.UserMessage = inputUserMessage;
+            message.Action = "sendMessage";
 
             try
             {
-
-                NetworkStream n = client.GetStream();
-                //message.UserMessage = Console.ReadLine();
+                NetworkStream n = server.GetStream();
                 BinaryWriter w = new BinaryWriter(n);
                 string output = JsonConvert.SerializeObject(message);
                 w.Write(output);
                 w.Flush();
-
-
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        // Skicka privat meddelande
+        internal void SendPrivate(string inputUserName, string inputUserMessage)
+        {
+            Message message = new Message();
+            message.UserName = inputUserName;
+            message.Version = currentVersion;
+            message.UserMessage = inputUserMessage;
+            message.Action = "sendPrivateMessage";
+
+            try
+            {
+                NetworkStream n = server.GetStream();
+                BinaryWriter w = new BinaryWriter(n);
+                string output = JsonConvert.SerializeObject(message);
+                w.Write(output);
+                w.Flush();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // Logga in användare
+        public void Login(string inputUserName, string inputUserPassword)
+        {
+            Message message = new Message();
+            message.UserName = inputUserName;
+            message.Version = currentVersion;
+            message.UserMessage = inputUserPassword;
+            name = inputUserName;
+            message.Action = "login";
+
+            try
+            {
+                NetworkStream n = server.GetStream();
+                BinaryWriter w = new BinaryWriter(n);
+                string output = JsonConvert.SerializeObject(message);
+                w.Write(output);
+                w.Flush();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        // Skapa användare
+        public void Create(string inputUserName, string inputUserPassword)
+        {
+            Message message = new Message();
+            message.UserName = inputUserName;
+            message.Version = currentVersion;
+            message.UserMessage = inputUserPassword;
+            name = inputUserName;
+            message.Action = "createUser";
+
+            try
+            {
+                NetworkStream n = server.GetStream();
+                BinaryWriter w = new BinaryWriter(n);
+                string output = JsonConvert.SerializeObject(message);
+                w.Write(output);
+                w.Flush();
+            }
+            catch (Exception)
+            {
+
             }
         }
     }
