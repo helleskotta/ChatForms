@@ -36,17 +36,20 @@ namespace ChatForms
                 user.Username = usernameBox.Text;
                 user.Password = passwordBox.Text;
                 client.Create(user.Username, user.Password);
-                Thread.Sleep(600);
 
-                if (client.createUserSucceeded == true)
+                for (int i = 0; i < 50; i++)
                 {
-                    this.Close();
-
-                }
-
-                else
-                {
-                    MessageBox.Show("Användarnamnet är upptaget.");
+                    Thread.Sleep(1000);
+                    if (client.createUserSucceeded == true)
+                    {
+                        this.Close();
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Användarnamnet är upptaget.");
+                        break;
+                    }
                 }
             }
             else

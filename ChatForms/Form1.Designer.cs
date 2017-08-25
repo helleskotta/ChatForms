@@ -35,6 +35,7 @@
             this.contactsBox = new System.Windows.Forms.ListBox();
             this.contactLabel = new System.Windows.Forms.Label();
             this.messageLabel = new System.Windows.Forms.Label();
+            this.LogOutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inputBox
@@ -91,12 +92,23 @@
             this.messageLabel.TabIndex = 7;
             this.messageLabel.Text = "Write a message";
             // 
+            // LogOutButton
+            // 
+            this.LogOutButton.Location = new System.Drawing.Point(734, 556);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Size = new System.Drawing.Size(138, 23);
+            this.LogOutButton.TabIndex = 8;
+            this.LogOutButton.Text = "Get Out Biatch!";
+            this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
             // ChatForms
             // 
             this.AcceptButton = this.sendBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 590);
+            this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.contactLabel);
             this.Controls.Add(this.contactsBox);
@@ -121,6 +133,7 @@
         private System.Windows.Forms.ListBox contactsBox;
         private System.Windows.Forms.Label contactLabel;
         private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.Button LogOutButton;
     }
 }
 
