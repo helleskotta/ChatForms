@@ -16,6 +16,8 @@ namespace ChatForms
         User user = new User();
         Client client;
         List<string> contactList = new List<string>();
+        public bool ifPrivate = false;
+        public string privateName = "";
 
         public ChatForms()
         {
@@ -50,7 +52,16 @@ namespace ChatForms
         // Skicka-knapp
         private void sendBtn_Click(object sender, EventArgs e)
         {
-            client.Send(user.Username, inputBox.Text);
+            if (ifPrivate)
+            {
+                string temp = $"{privateName};{inputBox.Text}";
+                client.SendPrivate(user.Username, temp);
+                ifPrivate = false;
+            }
+            else
+            {
+                client.Send(user.Username, inputBox.Text);
+            }
             inputBox.Clear();
         }
 
@@ -83,7 +94,8 @@ namespace ChatForms
 
         private void contactsBox_MouseClick(object sender, MouseEventArgs e)
         {
-
+            privateName = contactsBox.SelectedItem.ToString();
+            ifPrivate = true;
         }
     }
 }
