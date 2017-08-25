@@ -37,6 +37,7 @@
             this.messageLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.CloseButtonNewUser = new System.Windows.Forms.Button();
+            this.LogOutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inputBox
@@ -99,6 +100,16 @@
             this.messageLabel.TabIndex = 7;
             this.messageLabel.Text = "Write a message";
             // 
+            // LogOutButton
+            // 
+            this.LogOutButton.Location = new System.Drawing.Point(734, 556);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Size = new System.Drawing.Size(138, 23);
+            this.LogOutButton.TabIndex = 8;
+            this.LogOutButton.Text = "Get Out Biatch!";
+            this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -130,6 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(897, 590);
+            this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.CloseButtonNewUser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.messageLabel);
@@ -157,6 +169,7 @@
         private System.Windows.Forms.ListBox contactsBox;
         private System.Windows.Forms.Label contactLabel;
         private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.Button LogOutButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button CloseButtonNewUser;
     }

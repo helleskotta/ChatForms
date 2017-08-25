@@ -97,5 +97,12 @@ namespace ChatForms
             privateName = contactsBox.SelectedItem.ToString();
             ifPrivate = true;
         }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            client.QuitClient();
+            this.Visible = false;
+            ShowDialog();
+        }
     }
 }
