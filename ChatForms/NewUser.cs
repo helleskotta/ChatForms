@@ -15,6 +15,7 @@ namespace ChatForms
     {
         User user;
         Client client;
+        private bool mouseDown = false;
 
         public NewUser()
         {
@@ -63,6 +64,22 @@ namespace ChatForms
             client.QuitClient();
             Close();
             client.loginSucceeded = true;
+        }
+
+        private void NewUser_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+        }
+
+        private void NewUser_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void NewUser_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+                this.Location = MousePosition;
         }
     }
 }

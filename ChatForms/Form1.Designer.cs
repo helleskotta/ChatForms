@@ -42,10 +42,10 @@
             // 
             // inputBox
             // 
-            this.inputBox.Location = new System.Drawing.Point(31, 550);
-            this.inputBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inputBox.Location = new System.Drawing.Point(41, 646);
+            this.inputBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(409, 20);
+            this.inputBox.Size = new System.Drawing.Size(580, 22);
             this.inputBox.TabIndex = 0;
             // 
             // chatBox
@@ -53,10 +53,10 @@
             this.chatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chatBox.FormattingEnabled = true;
             this.chatBox.ItemHeight = 16;
-            this.chatBox.Location = new System.Drawing.Point(31, 96);
-            this.chatBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chatBox.Location = new System.Drawing.Point(41, 118);
+            this.chatBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.chatBox.Name = "chatBox";
-            this.chatBox.Size = new System.Drawing.Size(625, 404);
+            this.chatBox.Size = new System.Drawing.Size(832, 484);
             this.chatBox.TabIndex = 1;
             // 
             // sendBtn
@@ -66,11 +66,11 @@
             this.sendBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.sendBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendBtn.Location = new System.Drawing.Point(581, 544);
-            this.sendBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sendBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendBtn.Location = new System.Drawing.Point(688, 634);
+            this.sendBtn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.sendBtn.Name = "sendBtn";
-            this.sendBtn.Size = new System.Drawing.Size(76, 28);
+            this.sendBtn.Size = new System.Drawing.Size(101, 34);
             this.sendBtn.TabIndex = 2;
             this.sendBtn.Text = "Send";
             this.sendBtn.UseVisualStyleBackColor = false;
@@ -80,10 +80,10 @@
             // 
             this.contactsBox.FormattingEnabled = true;
             this.contactsBox.ItemHeight = 16;
-            this.contactsBox.Location = new System.Drawing.Point(667, 94);
-            this.contactsBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.contactsBox.Location = new System.Drawing.Point(889, 116);
+            this.contactsBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.contactsBox.Name = "contactsBox";
-            this.contactsBox.Size = new System.Drawing.Size(122, 342);
+            this.contactsBox.Size = new System.Drawing.Size(161, 484);
             this.contactsBox.TabIndex = 3;
             this.contactsBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.contactsBox_MouseClick);
             // 
@@ -91,7 +91,8 @@
             // 
             this.contactLabel.AutoSize = true;
             this.contactLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactLabel.Location = new System.Drawing.Point(661, 63);
+            this.contactLabel.Location = new System.Drawing.Point(881, 78);
+            this.contactLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.contactLabel.Name = "contactLabel";
             this.contactLabel.Size = new System.Drawing.Size(141, 25);
             this.contactLabel.TabIndex = 4;
@@ -101,7 +102,8 @@
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageLabel.Location = new System.Drawing.Point(35, 524);
+            this.messageLabel.Location = new System.Drawing.Point(37, 624);
+            this.messageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(151, 20);
             this.messageLabel.TabIndex = 7;
@@ -112,8 +114,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(23, 45);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(35, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 32);
             this.label1.TabIndex = 9;
@@ -126,12 +127,12 @@
             this.CloseButtonNewUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.CloseButtonNewUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.CloseButtonNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButtonNewUser.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButtonNewUser.Font = new System.Drawing.Font("Perpetua Titling MT", 10.8F, System.Drawing.FontStyle.Bold);
             this.CloseButtonNewUser.ForeColor = System.Drawing.Color.DarkRed;
-            this.CloseButtonNewUser.Location = new System.Drawing.Point(877, 11);
-            this.CloseButtonNewUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CloseButtonNewUser.Location = new System.Drawing.Point(1070, -3);
+            this.CloseButtonNewUser.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.CloseButtonNewUser.Name = "CloseButtonNewUser";
-            this.CloseButtonNewUser.Size = new System.Drawing.Size(25, 34);
+            this.CloseButtonNewUser.Size = new System.Drawing.Size(33, 42);
             this.CloseButtonNewUser.TabIndex = 16;
             this.CloseButtonNewUser.Text = "X";
             this.CloseButtonNewUser.UseVisualStyleBackColor = false;
@@ -146,10 +147,10 @@
             this.LogOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LogOutButton.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogOutButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LogOutButton.Location = new System.Drawing.Point(701, 544);
-            this.LogOutButton.Margin = new System.Windows.Forms.Padding(4);
+            this.LogOutButton.Location = new System.Drawing.Point(881, 634);
+            this.LogOutButton.Margin = new System.Windows.Forms.Padding(5);
             this.LogOutButton.Name = "LogOutButton";
-            this.LogOutButton.Size = new System.Drawing.Size(127, 28);
+            this.LogOutButton.Size = new System.Drawing.Size(169, 34);
             this.LogOutButton.TabIndex = 8;
             this.LogOutButton.Text = "Log out";
             this.LogOutButton.UseVisualStyleBackColor = false;
@@ -158,10 +159,10 @@
             // ChatForms
             // 
             this.AcceptButton = this.sendBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(914, 638);
+            this.ClientSize = new System.Drawing.Size(1103, 691);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.CloseButtonNewUser);
             this.Controls.Add(this.label1);
@@ -174,12 +175,15 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "ChatForms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChatForms";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChatForms_FormClosing);
             this.Load += new System.EventHandler(this.ChatForms_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ChatForms_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChatForms_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ChatForms_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
