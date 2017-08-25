@@ -30,12 +30,12 @@ namespace ChatForms
             {
                 if (messages.Count == 0)
                 {
-                    messages.Add(new Message { UserMessage = "quit" });
+                    messages.Add(new Message { UserMessage = "--quit--" });
                 }
                 else
                 {
                     Message message = messages.ElementAt(0);
-                    message.UserMessage = "quit";
+                    message.UserMessage = "--quit--";
                 }
 
                 Monitor.PulseAll(messages);
@@ -62,7 +62,7 @@ namespace ChatForms
             AddMessagesToQueueThread.Start();
         }
 
-        private void AddMessagesToQueue()
+        public void AddMessagesToQueue()
         {
             bool quit = false;
 
@@ -79,7 +79,7 @@ namespace ChatForms
                         Monitor.PulseAll(messages);
                     }
 
-                    quit = message.UserMessage.ToLower() == "quit";
+                    quit = message.UserMessage.ToLower() == "--quit--";
                 }
                 catch
                 {
@@ -106,12 +106,12 @@ namespace ChatForms
 
                         message = messages.ElementAt(0);
 
-                        quit = message.UserMessage.ToLower() == "quit";
+                        quit = message.UserMessage.ToLower() == "--quit--";
 
                         if (!quit)
                         {
 
-                            if (message.UserMessage.ToLower() != "quit")
+                            if (message.UserMessage.ToLower() != "--quit--")
                                 messages.RemoveAt(0);
 
                             if (message.UserName == name)
@@ -194,8 +194,30 @@ namespace ChatForms
             message.UserName = inputUserName;
             message.Version = currentVersion;
             message.UserMessage = inputUserMessage;
-            name = inputUserName;
             message.Action = "sendMessage";
+
+            try
+            {
+                NetworkStream n = server.GetStream();
+                BinaryWriter w = new BinaryWriter(n);
+                string output = JsonConvert.SerializeObject(message);
+                w.Write(output);
+                w.Flush();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // Skicka privat meddelande
+        internal void SendPrivate(string inputUserName, string inputUserMessage)
+        {
+            Message message = new Message();
+            message.UserName = inputUserName;
+            message.Version = currentVersion;
+            message.UserMessage = inputUserMessage;
+            message.Action = "sendPrivateMessage";
 
             try
             {
