@@ -45,7 +45,7 @@
             this.inputBox.Location = new System.Drawing.Point(31, 550);
             this.inputBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(544, 22);
+            this.inputBox.Size = new System.Drawing.Size(409, 20);
             this.inputBox.TabIndex = 0;
             // 
             // chatBox
@@ -83,7 +83,7 @@
             this.contactsBox.Location = new System.Drawing.Point(667, 94);
             this.contactsBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contactsBox.Name = "contactsBox";
-            this.contactsBox.Size = new System.Drawing.Size(161, 420);
+            this.contactsBox.Size = new System.Drawing.Size(122, 342);
             this.contactsBox.TabIndex = 3;
             this.contactsBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.contactsBox_MouseClick);
             // 
@@ -112,7 +112,8 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(31, 55);
+            this.label1.Location = new System.Drawing.Point(23, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 32);
             this.label1.TabIndex = 9;
@@ -157,7 +158,7 @@
             // ChatForms
             // 
             this.AcceptButton = this.sendBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(914, 638);

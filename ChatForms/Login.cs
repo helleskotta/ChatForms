@@ -55,5 +55,21 @@ namespace ChatForms
             Close();
             client.loginSucceeded = true;
         }
+
+        private void passwordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoginButton.PerformClick();
+            }
+        }
+
+        private void usernameBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoginButton.PerformClick();
+            }
+        }
     }
 }
